@@ -13,7 +13,7 @@ ADD https://github.com/rapid7/hackazon/archive/master.zip /hackazon-master.zip
 RUN unzip /hackazon-master.zip -d hackazon
 RUN mv /hackazon/hackazon-master/ /var/www/hackazon
 RUN chown -R www-data:www-data /var/www/
-RUN chown -R www-data:www-data /var/www/hackazon/web/user_pictures/
+RUN chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
 RUN chown -R www-data:www-data /var/www/hackazon/web/upload
 RUN chown -R www-data:www-data /var/www/hackazon/assets/config
 RUN chmod 755 /start.sh
