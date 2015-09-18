@@ -16,6 +16,6 @@ docker build --rm -t mutzel/hackazon .
 then run via: 
 docker run --name hackazon -d -p 80:80  mutzel/hackazon
 
-Login into hackazon at https://<<your host here...>>:80 and begin configuring...
+Login into hackazon at https:// (( your host here... )) :80 and begin configuring...
 
 See https://hub.docker.com/r/mutzel/all-in-one-hackazon/
