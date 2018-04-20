@@ -20,4 +20,4 @@ Login into hackazon at https:// (( your host here... )) :80 and begin configurin
 
 See https://hub.docker.com/r/mutzel/all-in-one-hackazon/
 
-The latest tag is a snapshot of the container after the configuration steps have been completed.  In that snapshot, the passwords are as listed here: https://hub.docker.com/r/mutzel/all-in-one-hackazon/
+Login into hackazon at http:// (( your host here... )) and begin configuring...  You can just select to use the existing db password as it is set in the startup script.
