@@ -1,8 +1,9 @@
-MAINTAINER Chris Mutzel <chris.mutzel@gmail.com>
-RUN apt-get update # Fri Oct 24 13:09:23 EDT 2014
 FROM ubuntu:14.04
+MAINTAINER Chris Mutzel <chris.mutzel@gmail.com>
+RUN apt-get update
 RUN apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client mysql-server apache2 libapache2-mod-php5 pwgen python-setuptools vim-tiny php5-mysql  php5-ldap unzip
+
 # setup hackazon
 RUN easy_install supervisor
 ADD ./scripts/start.sh /start.sh
@@ -28,5 +29,6 @@ RUN chmod 755 /start.sh
 RUN chmod 755 /etc/apache2/foreground.sh
 RUN a2enmod rewrite 
 RUN mkdir /var/log/supervisor/
+
 EXPOSE 80
 CMD ["/bin/bash", "/start.sh"]
