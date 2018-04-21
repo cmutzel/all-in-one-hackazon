@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #mysql has to be started this way as it doesn't work to call from /etc/init.d
-/usr/bin/mysqld_safe & 
+#and files need to be touched to overcome overlay file system issues on Mac and Windows
+find /var/lib/mysql -type f -exec touch {} \; && /usr/bin/mysqld_safe & 
 sleep 10s
 # Here we generate random passwords
 MYSQL_USER="root"
@@ -15,9 +16,6 @@ HASHED_PASSWORD=`php /passwordHash.php $HACKAZON_PASSWORD`
 echo hackazon password: $HACKAZON_PASSWORD
 echo $MYSQL_PASSWORD > /mysql-root-pw.txt
 echo $HACKAZON_PASSWORD > /hackazon-db-pw.txt
-#there used to be a huge ugly line of sed and cat and pipe and stuff below,
-#but thanks to @djfiander's thing at https://gist.github.com/djfiander/6141138
-#there isn't now.
 
 #set DB password in db.php
 sed -i "s/yourdbpass/$HACKAZON_PASSWORD/" /var/www/hackazon/assets/config/db.php
