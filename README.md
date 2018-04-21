@@ -1,4 +1,4 @@
-# proxied-hackazon
+# all-in-one-hackazon
 
 Run a docker container include hackazon, apache, mysql, and nodejs with express server
 
