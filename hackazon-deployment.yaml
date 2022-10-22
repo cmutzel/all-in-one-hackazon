@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.1 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: hackazon
+  name: hackazon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: hackazon
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.1 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: hackazon
+    spec:
+      containers:
+        - env:
+            - name: hackazon
+              value: "0"
+          image: saltaaron/hackazon:latest
+          name: hackazon
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}
